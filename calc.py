@@ -16,7 +16,7 @@ def calculate(sign, x, y):
             result = float(Decimal(str(x)) / Decimal(str(y)))
 
         elif( sign == '^' ):
-            result = float(Decimal(math.pow(Decimal(str(x)), Decimal(str(y)))))
+            result = float(Decimal(str(math.pow(Decimal(str(x)), Decimal(str(y))))))
         else:
             result = 'Error: It is useless calculator, and it do not know this operator(('
 
