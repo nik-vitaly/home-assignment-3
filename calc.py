@@ -23,8 +23,6 @@ def calculate(sign, x, y):
     except ZeroDivisionError:
         result = 'Error: Wow, wow. You are not God to do so things! (Divide on zero)'
 
-    except IndexError:
-        result = 'Error: It needs 2 arguments'
     except InvalidOperation:
         result = 'Error: It works just only with numbers'
 

@@ -105,12 +105,6 @@ class CalculatorTestCase(unittest.TestCase):
     def testSubNotNumInverce(self):
         self.assertEqual(calculate('-', 1, 'abc'), 'Error: It works just only with numbers')
 
-    # def testArgumentless(self):
-    #     self.assertEqual(calculate('*', 1, ), 'Error: It needs 2 arguments')
-    #
-    # def testEmptyArgs(self):
-    #     self.assertEqualtestArgumentless(calculate('^'), 'Error: It needs 2 arguments')
-
     def testNone(self):
         self.assertEqual(calculate('/', None, 1), 'Error: It works just only with numbers')
 
