@@ -1,33 +1,31 @@
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 import math
 
 def calculate(sign, x, y):
+    try:
+        if( sign == '+' ):
+            result = float(Decimal(str(x)) + Decimal(str(y)))
 
-    if (x.isdigit() & y.isdigit()):
-        try:
-            if( sign == '+' ):
-                result = Decimal(x + y)
+        elif( sign == '-' ):
+            result = float(Decimal(str(x)) - Decimal(str(y)))
 
-            elif( sign == '-' ):
-                result = Decimal(x - y)
+        elif( sign == '*' ):
+            result = float(Decimal(str(x)) * Decimal(str(y)))
 
-            elif( sign == '*' ):
-                result = Decimal(x * y)
+        elif( sign == '/' ):
+            result = float(Decimal(str(x)) / Decimal(str(y)))
 
-            elif( sign == '/' ):
-                result = Decimal(x / y)
+        elif( sign == '^' ):
+            result = float(Decimal(math.pow(Decimal(str(x)), Decimal(str(y)))))
+        else:
+            result = 'Error: It is useless calculator, and it do not know this operator(('
 
-            elif( sign == '^' ):
-                result = Decimal(math.pow(x, y))
-            else:
-                result = 'Error: It is useless calculator, and it do not know this operator(('
+    except ZeroDivisionError:
+        result = 'Error: Wow, wow. You are not God to do so things! (Divide on zero)'
 
-        except ZeroDivisionError:
-            result = 'Error: Wow, wow. You are not God to do so things! (Divide on zero)'
-
-        except IndexError:
-            result = 'Error: It needs 2 arguments'
-    else:
+    except IndexError:
+        result = 'Error: It needs 2 arguments'
+    except InvalidOperation:
         result = 'Error: It works just only with numbers'
 
     return result
